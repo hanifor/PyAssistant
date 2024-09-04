@@ -1,8 +1,8 @@
 from notify import Bildirim as bil
 from web import Web as w
-from main import Window as wi
+from main import Window as wii
 
 web = w()
 
-window = wi(web)
+window = wii(web)
 window.mainloop()
