@@ -1,6 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
 
 
 
@@ -40,3 +43,11 @@ class Web:
             self.driver.switch_to.window(self.driver.window_handles[-1])
         else:
             print("No window is currently open.")
+
+    def searchGoogle(self,text : str):
+        self.driver.get("https://www.google.com/")
+        m = self.driver.find_element(By.NAME,"q")
+        m.send_keys(text)
+        time.sleep(0.2)
+        # perform Google search with Keys.ENTER
+        m.send_keys(Keys.ENTER)
